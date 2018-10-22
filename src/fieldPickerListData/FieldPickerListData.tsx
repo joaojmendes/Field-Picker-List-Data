@@ -6,6 +6,7 @@ import { TagPicker } from "office-ui-fabric-react/lib/components/pickers/TagPick
 import SPservice from "../services/SPservice";
 import { Label } from "office-ui-fabric-react/lib/Label";
 
+
 export class FieldPickerListData extends React.Component<
   IFieldPickerListDataProps,
   IFieldPickerListDataState
