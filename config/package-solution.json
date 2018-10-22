@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "fieldpickerlistdataclientsidesolution",
+    "id": "48b1a63e-b32b-416f-a515-a86d1ec91ae9",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/fieldpickerlistdata.sppkg"
+  }
+}

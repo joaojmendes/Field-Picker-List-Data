@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.6.0",
+    "libraryName": "field-picker-list-data",
+    "libraryId": "48b1a63e-b32b-416f-a515-a86d1ec91ae9",
+    "environment": "spo",
+    "packageManager": "npm",
+    "framework": "react",
+    "isCreatingSolution": true
+  }
+}
