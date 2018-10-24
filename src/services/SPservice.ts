@@ -10,7 +10,7 @@ export default class SPService {
   }
   /**
    * Get List Items
-   * @param options
+   *
    */
   public async getListItems(
     filterText: string,
@@ -36,6 +36,30 @@ export default class SPService {
         .filter(filter)
         .get();
       return Promise.resolve(returnItems);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
+  // Get ListAttachments
+  public async getListItemAttachments(
+    listId: string,
+    itemId: number,
+    webUrl?: string
+  ): Promise<any[]> {
+    let returnFiles: any[];
+    let spWeb: Web;
+    if (typeof webUrl === undefined) {
+      spWeb = new Web(webUrl);
+    } else {
+      spWeb = new Web(this._context.pageContext.web.absoluteUrl);
+    }
+    try {
+      let files = await spWeb.lists
+        .getById(listId)
+        .items.getById(itemId)
+        .attachmentFiles.get();
+      return Promise.resolve(files);
     } catch (error) {
       return Promise.reject(error);
     }
