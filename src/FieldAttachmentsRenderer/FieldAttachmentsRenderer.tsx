@@ -10,7 +10,7 @@ import {
   IDocumentCardPreviewImage
 } from 'office-ui-fabric-react/lib/DocumentCard';
 import { ImageFit } from 'office-ui-fabric-react/lib/Image';
-import { UploadFile } from './UploadFile'
+
 import { IFieldAttachmentsRendererProps } from './IFieldAttachmentsRendererProps';
 import SPservice from "../services/SPservice";
 
@@ -97,7 +97,7 @@ export class FieldAttachmentsRenderer extends React.Component<IFieldAttachmentsR
           height: 100,
         });
 
-      };
+      }
     }
     catch (error) {
       this.setState({
@@ -109,12 +109,12 @@ export class FieldAttachmentsRenderer extends React.Component<IFieldAttachmentsR
   }
 
   // Run befor render component
-  componentDidMount() {
+  public componentDidMount() {
     this._loadAttachments();
   }
 
   // Render Attachments
-  render() {
+  public render() {
 
     return (
       <div>

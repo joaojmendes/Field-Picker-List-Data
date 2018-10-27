@@ -5,7 +5,9 @@ export default class SPService {
     constructor(_context: WebPartContext | ApplicationCustomizerContext);
     /**
      * Get List Items
-     * @param options
+     *
      */
     getListItems(filterText: string, listId: string, internalColumnName: string, webUrl?: string): Promise<any[]>;
+    getListItemAttachments(listId: string, itemId: number, webUrl?: string): Promise<any[]>;
+    deleteAttachment(fileName: string, listId: string, itemId: number, webUrl?: string): Promise<void>;
 }
