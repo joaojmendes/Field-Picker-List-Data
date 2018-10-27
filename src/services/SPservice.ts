@@ -12,12 +12,7 @@ export default class SPService {
    * Get List Items
    *
    */
-  public async getListItems(
-    filterText: string,
-    listId: string,
-    internalColumnName: string,
-    webUrl?: string
-  ): Promise<any[]> {
+  public async getListItems(filterText: string, listId: string, internalColumnName: string, webUrl?: string): Promise<any[]> {
     let filter = `startswith(${internalColumnName},'${filterText}')`;
     let returnItems: any[];
     console.log(
@@ -60,6 +55,31 @@ export default class SPService {
         .items.getById(itemId)
         .attachmentFiles.get();
       return Promise.resolve(files);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
+  // delete attachement
+  public async deleteAttachment(
+    fileName: string,
+    listId: string,
+    itemId: number,
+    webUrl?: string
+  ): Promise<void> {
+    let spWeb: Web;
+    if (typeof webUrl === undefined) {
+      spWeb = new Web(webUrl);
+    } else {
+      spWeb = new Web(this._context.pageContext.web.absoluteUrl);
+    }
+    try {
+      await spWeb.lists
+        .getById(listId)
+        .items.getById(itemId)
+        .attachmentFiles.getByName(fileName)
+        .delete();
+      return;
     } catch (error) {
       return Promise.reject(error);
     }

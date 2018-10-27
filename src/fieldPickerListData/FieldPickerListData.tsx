@@ -10,7 +10,7 @@ import { Label } from "office-ui-fabric-react/lib/Label";
 export class FieldPickerListData extends React.Component<
   IFieldPickerListDataProps,
   IFieldPickerListDataState
-> {
+  > {
   private _value: Array<any>;
   private _spservice: SPservice;
   constructor(props: IFieldPickerListDataProps) {
